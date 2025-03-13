@@ -1,8 +1,10 @@
 import Login from "../auth/Login";
 import SignUp from "../auth/SignUp";
+import Account from "../pages/Account";
 import LandingPage from "../components/LandingPage";
 import Menu from "../components/menu/Menu";
 import Layout from "../layout/Layout";
+import Dashboard from "../pages/Dashboard";
 
 const ROUTES = [
   {
@@ -20,6 +22,14 @@ const ROUTES = [
       {
         path: "/home",
         element: <LandingPage />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
       },
     ],
   },

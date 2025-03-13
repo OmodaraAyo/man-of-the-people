@@ -6,6 +6,7 @@ import { IoSearch } from "react-icons/io5";
 import { IoHelpCircleOutline } from "react-icons/io5";
 import assets from "../../assets/assets";
 import Agreement from "./Agreement";
+import { motion } from "framer-motion";
 
 const Menu = ({setShowDropDown}) => {
     const text = ["Are Not FDIC Insured", "Are Not Bank Guaranteed", "May Lose Value", "Are Not Deposits", "Are Not Insured by Any Federal Government Agency", "Are Not a Condition to Any Banking Service or Activities"]
@@ -14,7 +15,11 @@ const Menu = ({setShowDropDown}) => {
 
     
     return (
-    <nav className="flex flex-col gap-2 container mx-auto max-w-[50rem] justify-center bg-white">
+    <motion.nav
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    transition={{ duration: 0 }}
+    className="flex flex-col gap-2 container mx-auto max-w-[50rem] justify-center bg-white">
       <button className="flex items-center justify- w-full relative p-4">
         {/* Arrow at the beginning */}
         <MdKeyboardArrowLeft size={40} className="flex-shrink-0 cursor-pointer" onClick={() => setShowDropDown(false)} />
@@ -116,7 +121,7 @@ const Menu = ({setShowDropDown}) => {
         </div>
         <h1 className="w-full text-[0.622rem] sm:text-[0.912rem] text-center py-5 px-7 text-gray-800">Bank of America, N.A. Member FDIC. &copy; 2025 Bank of America Corporation</h1>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
