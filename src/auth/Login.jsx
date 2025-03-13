@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import assets from "../assets/assets";
 import { MdLock } from "react-icons/md";
 import { GoQuestion } from "react-icons/go";
 
 const Login = () => {
+  // Static credentials
+  const staticUserId = "user123";
+  const staticPassword = "password123";
+
+  // State for user input
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  // useNavigate hook for programmatic navigation
+  const navigate = useNavigate();
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    // Validate credentials
+    if (userId === staticUserId && password === staticPassword) {
+      setError(""); // Clear any previous error
+      navigate("/home"); // Navigate to the Landing Page
+    } else {
+      setError("Incorrect user ID or password"); // Set error message
+    }
+  };
+
   return (
     <header className="min-h-screen flex flex-col">
       {/* Row 1 */}
@@ -18,11 +44,7 @@ const Login = () => {
       {/* Row 2 */}
       <div className="container mx-auto py-3 flex justify-between">
         <div className="Logo-container flex items-center gap-2 text-gray-500">
-          <img
-            src={assets.Clogo}
-            alt={`complet-logo`}
-            className="w-[11.7rem]"
-          />
+          <img src={assets.Clogo} alt={`complet-logo`} className="w-[11.7rem]" />
           <p>Log In</p>
         </div>
         {/* Secure */}
@@ -42,10 +64,18 @@ const Login = () => {
 
       {/* Row 4 */}
       <div className="container mx-auto py-8 flex-grow">
-        <form action="" className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {/* User ID */}
           <label htmlFor="UserId">User ID</label>
-          <input type="text" className="border rounded p-2 outline-none" />
+          <input
+            type="text"
+            id="UserId"
+            className="border rounded p-2 outline-none"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+            required
+          />
+
           {/* Save Password */}
           <label
             htmlFor="save-password"
@@ -63,9 +93,20 @@ const Login = () => {
               ?
             </div>
           </label>
+
           {/* Password */}
           <label htmlFor="Password">Password</label>
-          <input type="password" className="border rounded p-2 outline-none" />
+          <input
+            type="password"
+            id="Password"
+            className="border rounded p-2 outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          {/* Error message */}
+          {error && <p className="text-red-500 text-sm">{error}</p>}
 
           {/* Login Button */}
           <button
