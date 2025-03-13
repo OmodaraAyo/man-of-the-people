@@ -26,7 +26,7 @@ const Login = () => {
   };
 
   return (
-    <header className="min-h-screen flex flex-col">
+    <header className="min-h-screen flex flex-col container mx-auto inset-x-0 max-w-screen-md">
       {/* Row 1 */}
       <h1 className="text-[0.615rem] italic bg-gray-200 text-center p-2">
         Bank of American deposit products:{" "}

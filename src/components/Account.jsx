@@ -13,8 +13,8 @@ const Account = () => {
     ]
   return (
     <div className="">
-      <div className="w-full bg-gray-200 flex items-center p-1.5 rounded container mx-auto border-none gap-2 text-gray-400 max-w-[23rem] sm:max-w-[32rem] z-30">
-                <IoSearch className="mt-1" />
+      <div className="w-full bg-gray-200 flex items-center p-1.5 rounded container mx-auto border-none gap-2 text-black max-w-[23rem] sm:max-w-[32rem] z-30">
+                <IoSearch className="mt-1" color="gray"/>
                 <input
                   type="text"
                   placeholder="Hi, I'm Erica. How can I help?"
