@@ -12,7 +12,7 @@ const Footer = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 mx-auto bg-white border-t border-gray-200 flex justify-around items-center py-2 px-6">
+    <nav className="fixed bottom-0 left-0 right-0 mx-auto bg-white border-t border-gray-200 flex justify-around items-center py-2 px-6 inset-x-0 max-w-screen-md drop-shadow-xl">
       {navItems.map((item, index) => (
         <Link
           key={index}

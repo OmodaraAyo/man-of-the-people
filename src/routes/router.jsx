@@ -1,7 +1,7 @@
 import Login from "../auth/Login";
 import SignUp from "../auth/SignUp";
 import LandingPage from "../components/LandingPage";
-import Menu from "../components/Menu";
+import Menu from "../components/menu/Menu";
 import Layout from "../layout/Layout";
 
 const ROUTES = [
@@ -26,7 +26,7 @@ const ROUTES = [
   {
     path: "/menu",
     element: <Menu />,
-  }
+  },
 ];
 
 export default ROUTES;
