@@ -5,28 +5,23 @@ import { MdLock } from "react-icons/md";
 import { GoQuestion } from "react-icons/go";
 
 const Login = () => {
-  // Static credentials
   const staticUserId = "user123";
   const staticPassword = "password123";
-
-  // State for user input
+ 
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  // useNavigate hook for programmatic navigation
   const navigate = useNavigate();
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
 
-    // Validate credentials
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (userId === staticUserId && password === staticPassword) {
-      setError(""); // Clear any previous error
-      navigate("/home"); // Navigate to the Landing Page
+      setError(""); 
+      navigate("/home");
     } else {
-      setError("Incorrect user ID or password"); // Set error message
+      setError("Incorrect user ID or password");
     }
   };
 
