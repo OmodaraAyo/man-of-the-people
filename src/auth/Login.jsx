@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import assets from "../assets/assets";
 import { MdLock } from "react-icons/md";
-import { GoQuestion } from "react-icons/go";
 import { useAuth } from "./AuthContext";
 
 const Login = () => {
-  const staticUserId = "user123";
-  const staticPassword = "password123";
+  const staticUserId = "Loera2perez";
+  const staticPassword = "Hellcatbabyricch66$";
  
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
