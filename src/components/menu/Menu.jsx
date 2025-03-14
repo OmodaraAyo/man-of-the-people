@@ -28,7 +28,7 @@ const Menu = ({setShowDropDown}) => {
           Menu
         </h1>
       </button>
-      <div className="w-full bg-gray-100 flex items-center p-1.5 rounded container mx-auto border-none gap-2 max-w-[28rem] sm:max-w-[32rem] z-30">
+      <div className="w-full bg-gray-100 flex items-center p-1.5 rounded container mx-auto border-none gap-2 max-w-[20rem] sm:max-w-[32rem] z-30">
         <IoSearch className="mt-1 text-gray-400" />
         <input
           type="text"
