@@ -6,7 +6,6 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 const History = () => {
     const [showAccountNumber, setShowAccountNumber] = useState(false)
   return (
-    // bg-gray-200
     <div className="pt-42 pb-15 w-full max-w-screen-md mx-auto">
         <h1 className='text-[0.67rem] font-semibold flex justify-end px-8 pb-1'>Provided by Bank of America</h1>
         <div className='bg-gray-100 h-full w-full pb-6 flex flex-col justify-center gap-7'>
@@ -39,7 +38,7 @@ const History = () => {
                 )}
             </div>
             {/* history */}
-            <div className='w-full h-full max-w-[20rem] sm:max-w-[38rem] lg:max-w-[43rem] place-self-center bg-white flex flex-col rounded-lg drop-shadow-lg px-[0.300rem]'>
+            <div className='w-full h-full max-w-[22rem] sm:max-w-[38rem] lg:max-w-[43rem] place-self-center bg-white flex flex-col rounded-lg drop-shadow-lg px-[0.300rem]'>
                 <h1 className='flex items-center justify-between px-4 py-2 text-gray-700 text-[0.818rem] font-semibold'>RECENT TRANSACTIONS</h1>
                 {bankHistory.map((transaction, index) => (
                     <div key={index} className='flex justify-between px-4 py-2 border-b border-gray-300'>
