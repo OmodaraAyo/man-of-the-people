@@ -33,7 +33,7 @@ const Header = () => {
         </div>
       </div>
       {/* bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.2)] */}
-      <div className="flex justify-around w-full py-4 px-10">
+      <div className="flex justify-around gap-15 w-full py-4 px-10">
       <NavLink to="/home/account"className={({ isActive }) =>`relative text-lg font-medium transition-colors ${isActive ? "text-red-700" : "text-gray-500"}`}>
         {({ isActive }) => (
           <>
