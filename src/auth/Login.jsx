@@ -56,7 +56,7 @@ const Login = () => {
       </div>
 
       {/* Row 3 */}
-      <div className="bg-red-500 text-white py-3 px-6 sm:px-19 sm:text-[1.089rem] lg:text-[1.2rem]">
+      <div className="bg-red-500 text-white py-3 px-6 sm:px-19 lg:px-6 sm:text-[1.089rem] lg:text-[1.2rem]">
         Log In to Online Banking
       </div>
 
@@ -118,7 +118,7 @@ const Login = () => {
       </div>
 
       {/* Row 5 (Footer) */} 
-      <div className="w-full bg-[#fff9f6] py-6 px-9 sm:px-20 space-y-2 text-[0.720rem] sm:text-[0.920rem]">
+      <div className="w-full bg-[#fff9f6] py-6 px-9 sm:px-20 lg:px-7 space-y-2 text-[0.720rem] sm:text-[0.920rem]">
         <p className="flex items-center gap-1 text-[0.878rem] font-bold">
           <MdLock />
           Secure Area
