@@ -7,7 +7,7 @@ import { useAuth } from "./AuthContext";
 const Login = () => {
   const staticUserId = "Loera2perez";
   const staticPassword = "Hellcatbabyricch66$";
- 
+
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,25 +26,28 @@ const Login = () => {
   const hideErrorMessage = () => {
     const timer = setTimeout(() => {
       setError("");
-    }, 5000); // 5 seconds delay
-    return () => clearTimeout(timer); 
+    }, 5000);
+    return () => clearTimeout(timer);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (userId === staticUserId && password === staticPassword) {
+    const trimmedUserId = userId.trim();
+    const trimmedPassword = password.trim();
+
+    if (trimmedUserId === staticUserId && trimmedPassword === staticPassword) {
       setError("");
-      login(); 
+      login();
       if (rememberUserId) {
-        localStorage.setItem("savedUserId", userId);
+        localStorage.setItem("savedUserId", trimmedUserId);
       } else {
         localStorage.removeItem("savedUserId");
       }
       navigate("/home/account");
     } else {
       setError("Incorrect user ID or password");
-      hideErrorMessage(); 
+      hideErrorMessage();
     }
   };
 
@@ -69,7 +72,6 @@ const Login = () => {
       <div className="container mx-auto py-3 px-5 flex justify-between">
         <div className="Logo-container flex items-center gap-2 text-gray-500">
           <img src={assets.Clogo} alt={`complet-logo`} className="w-[11.7rem]" />
-          {/* <p>Log In</p> */}
         </div>
         {/* Secure */}
         <div className="flex items-center text-gray-700 font-bold gap-1">
@@ -148,7 +150,7 @@ const Login = () => {
         </form>
       </div>
 
-      {/* Row 5 (Footer) */} 
+      {/* Row 5 (Footer) */}
       <div className="w-full bg-[#fff9f6] py-6 px-9 sm:px-20 lg:px-7 space-y-2 text-[0.720rem] sm:text-[0.920rem]">
         <p className="flex items-center gap-1 text-[0.878rem] font-bold">
           <MdLock />
