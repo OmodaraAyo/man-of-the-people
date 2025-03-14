@@ -16,8 +16,6 @@ const Menu = ({setShowDropDown}) => {
     
     return (
     <motion.nav
-    initial={{opacity: 0}}
-    animate={{opacity: 1}}
     className="flex flex-col gap-2 container mx-auto max-w-[50rem] justify-center bg-white overflow-x-hidden">
       <button className="flex items-center justify- w-full relative py-4 px-4.5">
         {/* Arrow at the beginning */}
@@ -28,7 +26,7 @@ const Menu = ({setShowDropDown}) => {
           Menu
         </h1>
       </button>
-      <div className="w-full bg-gray-100 flex items-center p-1.5 rounded container mx-auto border-none gap-2 max-w-[20.9rem] sm:max-w-[32rem] z-30">
+      <div className="w-full bg-gray-100 flex items-center p-1.5 rounded container mx-auto border-none gap-2 max-w-[20.8rem] sm:max-w-[32rem] z-30">
         <IoSearch className="mt-1 text-gray-400" />
         <input
           type="text"
@@ -56,7 +54,7 @@ const Menu = ({setShowDropDown}) => {
         </div>
 
         {/* debit-card */}
-        <div className="w-full h-full  rounded-2xl pt-2 drop-shadow-lg"style={{background: "linear-gradient(135deg, #8B0000 55%, #00008B 45%)"}}>
+        <div className="w-full h-full  rounded-2xl pt-2 drop-shadow-lg"style={{background: "linear-gradient(135deg, #8B0000 40%, #00008B 30%)"}}>
             <div className="flex flex-col gap-3 bg-white w-full h-full shadow-lg rounded-b-2xl py-3 px-4">
                 {/* logo & text*/}
                 <div className="flex flex-col font-semibold text-[0.999rem] border-b border-gray-200 pb-2">

@@ -6,7 +6,7 @@ import { MdOutlineLogout } from "react-icons/md";
 import Menu from "./menu/Menu";
 import { useAuth } from "../auth/AuthContext";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
@@ -33,10 +33,32 @@ const Header = () => {
         </div>
       </div>
       {/* bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.2)] */}
-      <div className="flex justify-around w-full py-4 px-10">
-          <Link to={"/home/account"}>Accounts</Link>
-          <Link to={"/home/dashboard"}>Dashboard</Link>
-      </div>
+      <div className="flex justify-between w-full py-4 px-10">
+      <NavLink to="/home/account"className={({ isActive }) =>`relative text-lg font-medium transition-colors ${isActive ? "text-red-700" : "text-gray-500"}`}>
+        {({ isActive }) => (
+          <>
+            Accounts
+            <span
+              className={`absolute bottom-0 left-0 h-0.5 bg-red-700 transition-all duration-300 ${
+                isActive ? "w-full" : "w-0"
+              }`}
+            ></span>
+          </>
+        )}
+      </NavLink>
+      <NavLink to="/home/dashboard" className={({ isActive }) =>`relative text-lg font-medium transition-colors ${ isActive ? "text-red-700" : "text-gray-500"}`}>
+        {({ isActive }) => (
+          <>
+            Dashboard
+            <span
+              className={`absolute bottom-0 left-0 h-0.5 bg-red-700 transition-all duration-300 ${
+                isActive ? "w-full" : "w-0"
+              }`}
+            ></span>
+          </>
+        )}
+      </NavLink>
+    </div>
       <AnimatePresence>
       {showDropDown && (
             <motion.div
