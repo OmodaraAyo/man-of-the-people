@@ -19,7 +19,7 @@ const Menu = ({setShowDropDown}) => {
     initial={{opacity: 0}}
     animate={{opacity: 1}}
     className="flex flex-col gap-2 container mx-auto max-w-[50rem] justify-center bg-white overflow-x-hidden">
-      <button className="flex items-center justify- w-full relative p-4">
+      <button className="flex items-center justify- w-full relative py-4 px-4.5">
         {/* Arrow at the beginning */}
         <MdKeyboardArrowLeft size={40} className="flex-shrink-0 cursor-pointer" onClick={() => setShowDropDown(false)} />
 
@@ -28,7 +28,7 @@ const Menu = ({setShowDropDown}) => {
           Menu
         </h1>
       </button>
-      <div className="w-full bg-gray-100 flex items-center p-1.5 rounded container mx-auto border-none gap-2 max-w-[20rem] sm:max-w-[32rem] z-30">
+      <div className="w-full bg-gray-100 flex items-center p-1.5 rounded container mx-auto border-none gap-2 max-w-[20.9rem] sm:max-w-[32rem] z-30">
         <IoSearch className="mt-1 text-gray-400" />
         <input
           type="text"
