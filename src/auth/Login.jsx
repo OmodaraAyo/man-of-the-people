@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import assets from "../assets/assets";
 import { MdLock } from "react-icons/md";
@@ -11,9 +11,26 @@ const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [rememberUserId, setRememberUserId] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, logout } = useAuth();
 
+  // Load saved user ID from localStorage when component mounts
+  useEffect(() => {
+    const savedUserId = localStorage.getItem("savedUserId");
+    if (savedUserId) {
+      setUserId(savedUserId);
+      setRememberUserId(true);
+    }
+  }, []);
+
+  // Function to hide the error message after a delay
+  const hideErrorMessage = () => {
+    const timer = setTimeout(() => {
+      setError("");
+    }, 5000); // 5 seconds delay
+    return () => clearTimeout(timer); // Cleanup the timer on unmount
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,10 +38,22 @@ const Login = () => {
     if (userId === staticUserId && password === staticPassword) {
       setError("");
       login(); 
+      if (rememberUserId) {
+        localStorage.setItem("savedUserId", userId);
+      } else {
+        localStorage.removeItem("savedUserId");
+      }
       navigate("/home/account");
     } else {
       setError("Incorrect user ID or password");
+      hideErrorMessage(); // Start the countdown to hide the error message
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    localStorage.removeItem("savedUserId");
+    navigate("/login");
   };
 
   return (
@@ -81,7 +110,8 @@ const Login = () => {
             <input
               type="checkbox"
               name="save-password"
-              value="yes"
+              checked={rememberUserId}
+              onChange={(e) => setRememberUserId(e.target.checked)}
               className="cursor-pointer"
             />
             <p>Save this User Id</p>
@@ -103,7 +133,11 @@ const Login = () => {
           />
 
           {/* Error message */}
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-sm">
+              {error} (This message will disappear in 5 seconds)
+            </p>
+          )}
 
           {/* Login Button */}
           <button
