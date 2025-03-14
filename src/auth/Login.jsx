@@ -61,7 +61,7 @@ const Login = () => {
       </div>
 
       {/* Row 4 */}
-      <div className="container mx-auto px-15 py-8 flex-grow">
+      <div className="container mx-auto px-6 sm:px-5 py-8 flex-grow">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {/* User ID */}
           <label htmlFor="UserId">User ID</label>
