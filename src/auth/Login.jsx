@@ -15,7 +15,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { login, logout } = useAuth();
 
-  // Load saved user ID from localStorage when component mounts
   useEffect(() => {
     const savedUserId = localStorage.getItem("savedUserId");
     if (savedUserId) {
@@ -24,12 +23,11 @@ const Login = () => {
     }
   }, []);
 
-  // Function to hide the error message after a delay
   const hideErrorMessage = () => {
     const timer = setTimeout(() => {
       setError("");
     }, 5000); // 5 seconds delay
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
+    return () => clearTimeout(timer); 
   };
 
   const handleSubmit = (e) => {
@@ -46,7 +44,7 @@ const Login = () => {
       navigate("/home/account");
     } else {
       setError("Incorrect user ID or password");
-      hideErrorMessage(); // Start the countdown to hide the error message
+      hideErrorMessage(); 
     }
   };
 
@@ -135,7 +133,7 @@ const Login = () => {
           {/* Error message */}
           {error && (
             <p className="text-red-500 text-sm">
-              {error} (This message will disappear in 5 seconds)
+              {error}
             </p>
           )}
 
