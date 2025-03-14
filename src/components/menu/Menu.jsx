@@ -18,8 +18,7 @@ const Menu = ({setShowDropDown}) => {
     <motion.nav
     initial={{opacity: 0}}
     animate={{opacity: 1}}
-    transition={{ duration: 0 }}
-    className="flex flex-col gap-2 container mx-auto max-w-[50rem] justify-center bg-white">
+    className="flex flex-col gap-2 container mx-auto max-w-[50rem] justify-center bg-white overflow-x-hidden">
       <button className="flex items-center justify- w-full relative p-4">
         {/* Arrow at the beginning */}
         <MdKeyboardArrowLeft size={40} className="flex-shrink-0 cursor-pointer" onClick={() => setShowDropDown(false)} />

@@ -5,6 +5,7 @@ import LandingPage from "../components/LandingPage";
 import Menu from "../components/menu/Menu";
 import Layout from "../layout/Layout";
 import Dashboard from "../pages/Dashboard";
+import History from "../pages/History";
 
 const ROUTES = [
   {
@@ -31,6 +32,10 @@ const ROUTES = [
         path: "dashboard",
         element: <Dashboard />,
       },
+      {
+        path: "account/history",
+        element: <History/>
+      }
     ],
   },
   {
