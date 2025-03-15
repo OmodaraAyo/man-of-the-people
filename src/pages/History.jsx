@@ -13,8 +13,8 @@ const History = () => {
                 <h1 className='w-full max-w-[12rem] font-semibold mt-6 text-[1.188rem]'>ADV PLUS BANKING - 3324</h1>
                 <button className='text-blue-800 cursor-pointer'>EDIT</button>
             </div>
-            <h1 className='flex flex-col items-center font-semibold text-[1.788rem]'>$54.19 <span className='text-[0.7rem] font-normal flex items-center justify-center gap-1'>Available balance <RiInformation2Line size={19} color='#1e40af'/></span></h1>
-            <div className='w-full h-full max-w-[23rem] sm:max-w-[38rem] lg:max-w-[43rem] place-self-center bg-white flex flex-col rounded-lg drop-shadow-lg px-4 py-2'>
+            <h1 className='flex flex-col items-center font-semibold text-[1.788rem]'>$54.19 <span className='text-[0.7rem] font-normal flex items-center justify-center gap-1'>Available balance <RiInformation2Line size={19} color='#1e40af' cursor='pointer'/></span></h1>
+            <div className='w-full h-full max-w-[22rem] sm:max-w-[38rem] lg:max-w-[43rem] place-self-center bg-white flex flex-col rounded-lg drop-shadow-lg px-4 py-2'>
                 <h1 className='flex items-center justify-between'>Account & Routing # 
                     <button className='cursor-pointer'>{showAccountNumber ? <MdKeyboardArrowUp size={24} color='gray' onClick={() => setShowAccountNumber(false)}/>: <MdKeyboardArrowDown size={24} color='gray' onClick={() => setShowAccountNumber(true)}/>}</button>
                 </h1>
@@ -38,14 +38,14 @@ const History = () => {
                 )}
             </div>
             {/* history */}
-            <div className='w-full h-full max-w-[23rem] sm:max-w-[38rem] lg:max-w-[43rem] place-self-center bg-white flex flex-col rounded-lg drop-shadow-lg px-[0.300rem]'>
+            <div className='w-full h-full max-w-[22rem] sm:max-w-[38rem] lg:max-w-[43rem] place-self-center bg-white flex flex-col rounded-lg drop-shadow-lg px-[0.300rem]'>
                 <h1 className='flex items-center justify-between px-4 py-2 text-gray-700 text-[0.818rem] font-semibold'>RECENT TRANSACTIONS</h1>
                 {bankHistory.map((transaction, index) => (
                     <div key={index} className='flex justify-between px-4 py-2 border-b border-gray-300'>
                         {/* date & type */}
                        <div className='flex flex-col'>
                         <h1 className='text-[0.778rem] text-gray-700'>{transaction.date}</h1>
-                        <h1 className='w-full max-w-[12rem] text-[1.043rem]'>{transaction.type}</h1>
+                        <h1 className='w-full max-w-[13.799rem] text-[1.043rem]'>{transaction.type}</h1>
                        </div>
                        {/* amount & current balance*/}
                        <div className='text-center py-2'>

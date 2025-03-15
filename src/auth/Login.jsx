@@ -13,7 +13,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [rememberUserId, setRememberUserId] = useState(false);
   const navigate = useNavigate();
-  const { login, logout } = useAuth();
+  const { login } = useAuth();
 
   useEffect(() => {
     const savedUserId = localStorage.getItem("savedUserId");
@@ -51,11 +51,6 @@ const Login = () => {
     }
   };
 
-  const handleLogout = () => {
-    logout();
-    localStorage.removeItem("savedUserId");
-    navigate("/login");
-  };
 
   return (
     <header className="min-h-screen flex flex-col container mx-auto inset-x-0 max-w-screen-md">
