@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import assets from "../assets/assets";
 import { MdLock } from "react-icons/md";
 import { useAuth } from "./AuthContext";
@@ -12,30 +12,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [rememberUserId, setRememberUserId] = useState(false);
-  const [isBiometricSupported, setIsBiometricSupported] = useState(false);
-  const [biometricAttempts, setBiometricAttempts] = useState(0);
-  const [showBiometricErrorModal, setShowBiometricErrorModal] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, logout } = useAuth();
 
   useEffect(() => {
     const savedUserId = localStorage.getItem("savedUserId");
     if (savedUserId) {
       setUserId(savedUserId);
       setRememberUserId(true);
-    }
-
-    if (window.PublicKeyCredential) {
-      PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
-        .then((available) => {
-          setIsBiometricSupported(available);
-          if (available) {
-            handleBiometricLogin();
-          }
-        })
-        .catch((err) => {
-          console.error("Biometric authentication not supported:", err);
-        });
     }
   }, []);
 
@@ -67,40 +51,11 @@ const Login = () => {
     }
   };
 
-  const handleBiometricLogin = async () => {
-    try {
-      const publicKeyCredentialRequestOptions = {
-        challenge: new Uint8Array(32),
-        allowCredentials: [],
-        userVerification: "required",
-      };
-
-      const assertion = await navigator.credentials.get({
-        publicKey: publicKeyCredentialRequestOptions,
-      });
-
-      console.log("Biometric authentication successful:", assertion);
-
-      login();
-      navigate("/home/account");
-    } catch (err) {
-      console.error("Biometric authentication failed:", err);
-      setBiometricAttempts((prev) => prev + 1);
-
-      if (biometricAttempts >= 2) {
-        setShowBiometricErrorModal(true);
-      } else {
-        setError("Biometric authentication failed. Please try again.");
-        hideErrorMessage();
-      }
-    }
+  const handleLogout = () => {
+    logout();
+    localStorage.removeItem("savedUserId");
+    navigate("/login");
   };
-
-  const handleCancelBiometric = () => {
-    setShowBiometricErrorModal(false);
-    setBiometricAttempts(0);
-  };
-
 
   return (
     <header className="min-h-screen flex flex-col container mx-auto inset-x-0 max-w-screen-md">
@@ -214,23 +169,6 @@ const Login = () => {
         <h1>Bank of America, N.A Member FDIC. <span>Equal Housing Lender</span></h1>
         <p className="-mt-3">&copy; 2025 Bank of America Corporation</p>
       </div>
-
-      {/* Biometric Error Modal */}
-      {showBiometricErrorModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <p className="text-red-500 text-lg font-semibold mb-4">
-              Biometric authentication failed. Please try again.
-            </p>
-            <button
-              onClick={handleCancelBiometric}
-              className="bg-blue-800 text-white py-2 px-4 rounded hover:bg-blue-900 transition-colors"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

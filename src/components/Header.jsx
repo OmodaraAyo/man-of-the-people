@@ -21,7 +21,7 @@ const Header = () => {
   }
   return (
     <div className="fixed inset-x-0 mx-auto w-full max-w-screen-md flex flex-col gap-2 bg-white shadow-xl z-50">
-      <div className="flex justify-around gap-28 py-2">
+      <div className="flex justify-around gap-44 sm:gap-[22rem] py-2">
         <button className="logo-menuBar flex items-center mt-5" onClick={() => setShowDropDown(true)}>
           <p className="flex flex-col items-center cursor-pointer outline-none" ><HiOutlineBars3 size={32}/><span className="text-[0.62rem] text-gray-800 -mt-1.5">Menu</span></p>
         {/* <img src={assets.Clogo} alt={`complet-logo`} className="w-[12.99rem]" /> */}
